@@ -17,10 +17,14 @@ export function deleteNote(e,tab) {
     }
 }
 
-export function deleteNotes(notes, tab){
+export function deleteNotes(notes){
     
     for(const el of notes) {
         el.remove();
     }
     removeNotes();
+}
+
+export function clearTab(tab) {
+ return tab = [];
 }

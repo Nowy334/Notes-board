@@ -2,7 +2,7 @@ import '../scss/main.scss';
 import {toggleModal, renderResults, renderResultsStorage} from "./views/createNote";
 import Note from './models/notes';
 import {draggable, draggablePhone} from './models/draggable';
-import {deleteNote, deleteNotes} from './views/deleteNote';
+import {deleteNote, deleteNotes, clearTab} from './views/deleteNote';
 import {UpdateNotes} from './views/updateNote';
 import {saveNotes, returnNotes, removeNote} from './models/localStorage';
 import {search} from './models/search';
@@ -67,6 +67,7 @@ function init() {
     document.querySelector('.board__panel--delete').addEventListener('click', () => {
      const notes = document.querySelectorAll('.note');
      deleteNotes(notes, tab);
+     tab = clearTab();
     });
 }
 
@@ -82,6 +83,7 @@ export const controlNote = () => {
 
     if(title || descryption) {
         state.note = new Note(title, descryption);
+
         tab.push(state.note);
         renderResults(state.note);
         saveNotes(tab);
