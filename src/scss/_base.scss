@@ -1,0 +1,46 @@
+:root {
+    --color-background: #f7f7f7;
+    --color-notes: #fff3ab;
+    --color-nav-notes: #fde87b;
+    --color-icon: #333;
+}
+
+@mixin respond($breakpoint) {
+    @if $breakpoint == phone {
+        @media only screen and (max-width:37.5em) {@content}; //600px
+    }
+    @if $breakpoint == tab-port {
+        @media only screen and (max-width:56.25em) {@content}; //900px
+    }
+    @if $breakpoint == tab-land {
+        @media only screen and (max-width:75em) {@content}; //1200px
+    }
+}
+
+
+* {
+    margin:0;
+    padding:0;
+}
+
+*,
+*::before,
+*::after{
+    box-sizing: inherit;
+}
+
+html {
+    box-sizing: border-box;
+    font-size: 62.5%; // 1rem = 10px
+
+    @include respond (phone){
+        font-size: 50%;
+    }
+    @include respond (tab-land){
+        font-size: 56.25%;
+    }
+}
+ 
+body {
+    font-family: 'Caveat', cursive;
+}

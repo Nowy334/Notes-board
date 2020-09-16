@@ -1,0 +1,291 @@
+.note {
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transform: rotate(-5deg);
+    box-sizing: border-box;
+    height:25rem;
+    width:25rem;
+    margin:0;
+    background-color: var(--color-notes);
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.43);
+    border-radius: 4px;
+    overflow: scroll;
+
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none;  /* IE 10+ */
+
+    &::-webkit-scrollbar {
+        width: 0px;
+        background: transparent; /* Chrome/Safari/Webkit */
+    }
+    transition: transform .3s;
+
+    &:hover {
+        transform: rotate(0);
+    }
+
+    @include respond (tab-port){
+        height:15rem;
+        width:15rem;
+        transform: rotate(0);
+    }
+
+    &__nav {
+        height:3.5rem;
+        width:100%;
+        
+        background-color: var(--color-nav-notes);
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        position: sticky;
+        top: 0;
+
+        &--title {
+            margin-right: auto;
+            margin-left: 1.5rem;
+            font-size: 2.5rem;
+
+            @include respond (phone){
+                font-size: 1.8rem;
+                margin-left: 1rem;
+            }
+        }
+        
+        &--icon{
+            
+            &-edit {
+                margin-right: 1.2rem;
+                width:2.2rem;
+                height:2.2rem;
+                fill:var(--color-icon);
+                transition: all .3s;
+                cursor: pointer;
+
+                @include respond (phone){
+                    margin-right: 0.7rem;
+                     width:1.8rem;
+                    height:1.8rem;
+                }
+
+                &:hover{
+                    transform: scale(1.1);
+                }
+            }
+
+            &-trash{
+                width:2rem;
+                height:2rem;
+                margin-right: 2rem;
+                fill:var(--color-icon);
+                transition: all .3s;
+                cursor: pointer;
+
+                @include respond (phone){
+                    width:1.7rem;
+                   height:1.7rem;
+                   margin-right: 1rem;
+               }
+
+                &:hover{
+                    fill:red;
+                    transform: scale(1.1);
+                }
+            }
+        }
+    }
+
+    &__descryption {
+        font-size: 2rem;
+        width:90%;
+        word-break:break-all;
+
+        @include respond (phone){
+            font-size: 1.5rem;
+       }
+    }
+}
+
+.modal-hidden{
+    visibility: visible!important ;
+    opacity: 1 !important;
+}
+
+.modal-btn-hidden {
+    display: none;
+} 
+
+.modal-edit__content--create-btn{
+    font-family: inherit;
+    font-size: 2.5rem;
+    padding: 1rem;
+    margin-top: 1.7rem;
+    background-color: var( --color-nav-notes);
+    border-radius: 4px;
+    border:none;
+    box-shadow: 0px 0px 4px 0px rgba(0,0,0,0.43);
+    transition: all .3s;
+    cursor: pointer;
+
+    &:focus {
+        outline: none;
+    }
+
+    &:hover {
+        transform: scale(1.1);
+        box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.43);
+    }
+}
+
+.modal-btn-update {
+    font-family: inherit;
+    font-size: 2.5rem;
+    padding: 1rem;
+    margin-top: 1.7rem;
+    background-color: var( --color-nav-notes);
+    border-radius: 4px;
+    border:none;
+    box-shadow: 0px 0px 4px 0px rgba(0,0,0,0.43);
+    transition: all .3s;
+    cursor: pointer;
+
+    &:focus {
+        outline: none;
+    }
+
+    &:hover {
+        transform: scale(1.1);
+        box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.43);
+    }
+}
+
+.modal {
+    z-index: 2000;
+    background-color: rgba(0,0,0,0.7);
+    position: absolute;
+    top: 0;
+    width:100%;
+    height:100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.4s ease-in-out;
+
+    &__content {
+        height:35rem;
+        width:35rem;
+        background-color: var(--color-notes);
+        box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.43);
+        border-radius: 4px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        &--nav{
+            height:5rem;
+            width:100%;
+            
+            background-color: var(--color-nav-notes);
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            backface-visibility: hidden;
+
+            &-title {
+                font-family: inherit;
+                font-size: 2.5rem;
+                font-weight: 700;
+                margin-left:1rem;
+                margin-right: auto;
+                padding: 2px;
+                background-color: transparent;
+                border-radius: 4px ;
+                border: 2px solid #000;
+
+                &:focus {
+                    outline: none;
+                }
+            }
+
+            &-icon{
+                display: flex;
+                align-items: center;
+                width:4rem;
+                height:4rem;
+                margin-right: 1rem;
+                fill:var(--color-icon);
+
+                &-use {
+                    cursor: pointer;
+                     transition: all .4s;
+                     backface-visibility: hidden;
+                        &:hover{
+                            fill:red;
+                            transform-origin: 50% 50%;
+                            transform: scale(1.2);
+                        }
+                }
+            }
+
+        }
+
+        &--description {
+            height: 60%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+
+            &-label{
+                font-size: 2.5rem;
+               padding: 1rem;
+            }
+
+            &-text {
+                font-family: inherit;
+                font-size: 2.5rem;
+                resize: none;
+                background-color: transparent;
+                border-radius: 4px;
+                border: 2px solid #000;
+                width: 30rem;
+
+                &:focus{
+                    outline: none;
+                }
+            }
+        }
+        &--create-btn {
+            font-family: inherit;
+            font-size: 2.5rem;
+            padding: 1rem;
+            margin-top: 1.7rem;
+            background-color: var( --color-nav-notes);
+            border-radius: 4px;
+            border:none;
+            box-shadow: 0px 0px 4px 0px rgba(0,0,0,0.43);
+            transition: all .3s;
+            cursor: pointer;
+
+            &:focus {
+                outline: none;
+            }
+
+            &:hover {
+                transform: scale(1.1);
+                box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.43);
+            }
+        }
+
+    }
+}
+
+.edit {
+    padding: 1rem;
+}

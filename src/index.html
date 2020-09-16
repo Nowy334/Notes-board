@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Note board</title>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <main class="board">
+        <div class="board__panel">
+            <div class="board__panel--create">
+                <button class="board__panel--btn">
+                    <svg class="board__panel--icon-plus">
+                        <use xlink:href = "images/sprite.svg#icon-plus"></use>
+                    </svg>
+                    <span class="board__panel--text">Create Note</span>
+                </button>
+            </div>
+                
+            <div class="board__panel--delete">
+                <button class="board__panel--btn">
+                    <svg class="board__panel--icon-trash">
+                        <use xlink:href = "images/sprite.svg#icon-trash"></use>
+                    </svg>
+                    <span class="board__panel--text">Delete All Notes</span>
+                </button>
+            </div>
+        </div>
+
+        <!--<div class="note">
+            <nav class="note__nav">
+                <h2 class="note__nav--title" >Witam</h2>
+                <svg class="note__nav--icon-edit">
+                    <use xlink:href = "images/sprite.svg#icon-edit"></use>
+                </svg>
+                <svg class="note__nav--icon-trash">
+                    <use xlink:href = "images/sprite.svg#icon-trash"></use>
+                </svg>
+            </nav>
+            <div class="note__descryption">
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Asperiores tempora itaque iusto libero adipisci modi nulla facere, saepe cumque eaque error consequuntur voluptas quod quasi sequi repellat fugit ut neque!ng elit. Asperiores tempora itaque iusto libero adipisci modi nulla facere, saepe cumque eaque error consequuntur voluptas quod quasi sequi repellat fugit ut neque! </p>
+            </div>
+            <div class="note__footer">
+
+            </div>
+        </div> -->
+
+        <div class="modal">
+            <div class="modal__content">
+                <nav class="modal__content--nav">
+                    <input type="text" placeholder="Title" class="modal__content--nav-title" maxlength="12">
+                    <svg class="modal__content--nav-icon">
+                        <use xlink:href = "images/sprite.svg#icon-cross" class="modal__content--nav-icon-use"></use>
+                    </svg>
+                </nav>
+                <div class="modal__content--description">
+                    <label class="modal__content--description-label" for="description">Descryption</label>
+                    <textarea name="description" cols="30" rows="10" class="modal__content--description-text"></textarea>
+                </div>
+
+                <button class="modal__content--create-btn">Create note</button>
+                <button class="modal-edit__content--create-btn modal-btn-hidden">Update note</button>
+                
+            </div>
+        </div>
+        
+    </main>
+    
+</body>
+</html>
