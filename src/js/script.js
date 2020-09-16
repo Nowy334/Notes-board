@@ -5,6 +5,7 @@ import {draggable, draggablePhone} from './models/draggable';
 import {deleteNote, deleteNotes} from './views/deleteNote';
 import {UpdateNotes} from './views/updateNote';
 import {saveNotes, returnNotes, removeNote} from './models/localStorage';
+import {search} from './models/search';
 
 
 window.addEventListener('load', () => {
@@ -40,6 +41,10 @@ document.querySelector('.board').addEventListener('click', e => {
     deleteNote(e,tab);
 });
 
+document.querySelector('.board__search-input').addEventListener('keyup', e => {
+    search(e);
+});
+
 function init() {
     const drag = document.querySelectorAll('.note');
     for(const el of drag) {
@@ -48,7 +53,6 @@ function init() {
         });
 
         el.addEventListener('touchstart', (e)=>{
-            console.log('telefon');
             let data = e.target;
             draggablePhone(tab, data, e);
         });
@@ -84,7 +88,6 @@ export const controlNote = () => {
         tab.push(state.note);
         renderResults(state.note);
         saveNotes(tab);
-        console.log(tab);
     }
 
     init();
