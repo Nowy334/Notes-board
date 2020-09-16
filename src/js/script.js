@@ -57,19 +57,16 @@ function init() {
             draggablePhone(tab, data, e);
         });
     }
-
-    const update = document.querySelectorAll('.note');
-        const notes = document.querySelectorAll('.note');
-        for(const el of update){
-            el.addEventListener('click', (e) => {
-                UpdateNotes(e, tab, notes);
-            });
-        }
+    if(document.querySelector('.note')){
+        document.querySelector('.note').addEventListener('click', (e) => {
+            UpdateNotes(e, tab);
+        });
+    }
         
 
     document.querySelector('.board__panel--delete').addEventListener('click', () => {
      const notes = document.querySelectorAll('.note');
-     deleteNotes(notes);
+     deleteNotes(notes, tab);
     });
 }
 

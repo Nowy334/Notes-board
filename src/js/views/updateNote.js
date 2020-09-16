@@ -13,17 +13,17 @@ export function UpdateNotes(e, tab, notes){
     const btn = document.querySelector('.modal__content--create-btn');
     const cross = document.querySelector('.modal__content--nav-icon-use');
 
-
     if (e.target.classList.contains("edit")){
        // const notes = document.querySelectorAll('.note');
     
         for(let i=0; i<tab.length; i++){
             if(tab[i].id === data.getAttribute('data-itemid')){
+                
+                toggleModal();
                 title.value = `${tab[i].title}`;
                 descryption.value = `${tab[i].descryption}`;
                 btnEdit.classList.remove('modal-btn-hidden');
-                btn.classList.add('modal-btn-hidden');
-                toggleModal(); 
+                btn.classList.add('modal-btn-hidden'); 
             }
         }
 

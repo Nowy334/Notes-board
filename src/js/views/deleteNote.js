@@ -17,7 +17,8 @@ export function deleteNote(e,tab) {
     }
 }
 
-export function deleteNotes(notes){
+export function deleteNotes(notes, tab){
+    
     for(const el of notes) {
         el.remove();
     }
